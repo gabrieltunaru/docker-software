@@ -1,0 +1,15 @@
+version: '3.5'
+services:
+  jellyfin:
+    image: jellyfin/jellyfin
+    container_name: jellyfin
+    network_mode: 'host'
+    volumes:
+      - jellyfin-config:/config
+      - jellyfin-cache:/cache
+      - /run/media/tunarug/ssd_shared_storage/plex:/media
+    restart: 'unless-stopped'
+
+volumes:
+  jellyfin-config:
+  jellyfin-cache:
